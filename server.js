@@ -8,10 +8,7 @@ var puerto    =   process.env.PORT || 8080;
 // ROUTES
 // ==============================================
 
-// sample route with a route the way we're used to seeing it
-app.get('/sample', function(req, res) {
-    res.send('this is a sample!');  
-});
+require('./routes/pais')(app);
 
 // START THE SERVER
 // ==============================================
