@@ -13,13 +13,33 @@ connection = mysql.createConnection(
 //creamos un objeto para ir almacenando todo lo que necesitemos
 var model = {};
 
-// Estados
+// Paises & Estados
 // ==============================================
 
 //Lista de estados
-model.getEdos = function(callback)
+model.getPaises = function(callback)
 {
-	if (connection) 
+	if (connection)
+	{
+		var sql = "SELECT * FROM `pais` order by `nombre`";
+		connection.query(sql, function(error, row) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				callback(null, row);
+			}
+		});
+	}
+}
+
+//Lista de estados
+model.getEstados = function(callback)
+{
+	if (connection)
 	{
 		var sql = "SELECT * FROM `estado` order by `nombre`";
 		connection.query(sql, function(error, row) 
