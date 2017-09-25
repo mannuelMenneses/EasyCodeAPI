@@ -1,0 +1,22 @@
+{
+  "name": "easycodeapi",
+  "version": "1.0.0",
+  "description": "API para sistema interno de EasyCode",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mannuelMenneses/EasyCodeAPI.git"
+  },
+  "author": "Manuel René Meneses Romero <mannuel.menneses@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mannuelMenneses/EasyCodeAPI/issues"
+  },
+  "homepage": "https://github.com/mannuelMenneses/EasyCodeAPI#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
