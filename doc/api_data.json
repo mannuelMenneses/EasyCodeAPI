@@ -12,6 +12,20 @@
         "Success 200": [
           {
             "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "resultados",
+            "description": "<p>Muestra array con resultados devuletos por la base de datos</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Number",
             "optional": false,
             "field": "id",
@@ -48,6 +62,20 @@
     "success": {
       "fields": {
         "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "resultados",
+            "description": "<p>Muestra array con resultados devuletos por la base de datos</p>"
+          },
           {
             "group": "Success 200",
             "type": "Number",
