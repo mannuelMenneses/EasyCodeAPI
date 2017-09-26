@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "get",
-    "url": "/estado/get",
+    "url": "/estados",
     "title": "Estados",
     "name": "Estados",
     "group": "Lugares",
@@ -29,7 +29,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Ejemplo",
-          "content": "[\n\t{\n\t\t\"id\": 1,\n\t\t\"nombre\": \"Ciudad de México (CDMX)\"\n\t},\n\t{\n\t\t\"id\": 2,\n\t\t\"nombre\": \"Jalisco (JAL)\"\n\t}\n]",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"Ciudad de México (CDMX)\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Jalisco (JAL)\"\n\t\t}\n\t]\n}",
           "type": "json"
         }
       ]
@@ -39,7 +39,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/pais/get",
+    "url": "/paises",
     "title": "Paises",
     "name": "Paises",
     "group": "Lugares",
@@ -67,7 +67,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Ejemplo",
-          "content": "[\n\t{\n\t\t\"id\": 1,\n\t\t\"nombre\": \"México\"\n\t},\n\t{\n\t\t\"id\": 2,\n\t\t\"nombre\": \"Estados Unidos de America\"\n\t}\n]",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"México\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Estados Unidos de América\"\n\t\t}\n\t]\n}",
           "type": "json"
         }
       ]
