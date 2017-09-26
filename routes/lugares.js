@@ -7,6 +7,7 @@ module.exports = function(app){
 	*@apiName Paises
 	*@apiGroup Lugares
 	*@apiVersion 1.0.0
+	*@apiDescription Regresa listado de paises
 	*
 	*@apiSuccess {Number} id Identificador del pais
 	*@apiSuccess {String} nombre Nombre del pais
@@ -34,6 +35,7 @@ module.exports = function(app){
 	*@apiName Estados
 	*@apiGroup Lugares
 	*@apiVersion 1.0.0
+	*@apiDescription Regresa listado de estados
 	*
 	*@apiSuccess {Number} id Identificador del estado
 	*@apiSuccess {String} nombre Nombre del estado

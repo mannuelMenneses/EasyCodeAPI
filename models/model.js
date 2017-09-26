@@ -13,7 +13,7 @@ connection = mysql.createConnection(
 //creamos un objeto para ir almacenando todo lo que necesitemos
 var model = {};
 
-// Paises & Estados
+// Lugares
 // ==============================================
 
 //Lista de estados

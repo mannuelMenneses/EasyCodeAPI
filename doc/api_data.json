@@ -6,6 +6,7 @@
     "name": "Estados",
     "group": "Lugares",
     "version": "1.0.0",
+    "description": "<p>Regresa listado de estados</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -43,6 +44,7 @@
     "name": "Paises",
     "group": "Lugares",
     "version": "1.0.0",
+    "description": "<p>Regresa listado de paises</p>",
     "success": {
       "fields": {
         "Success 200": [
@@ -65,7 +67,7 @@
       "examples": [
         {
           "title": "Ejemplo",
-          "content": "[\n\t{\n\t\t\"id\": 1,\n\t\t\"nombre\": \"México\"\n\t},\n\t{\n\t\t\"id\": 2,\n\t\t\"nombre\": \"Estados Unideos de America\"\n\t}\n]",
+          "content": "[\n\t{\n\t\t\"id\": 1,\n\t\t\"nombre\": \"México\"\n\t},\n\t{\n\t\t\"id\": 2,\n\t\t\"nombre\": \"Estados Unidos de America\"\n\t}\n]",
           "type": "json"
         }
       ]
