@@ -9,6 +9,7 @@ var puerto    =   process.env.PORT || 8080;
 // ==============================================
 
 require('./routes/lugares')(app);
+require('./routes/auth')(app);
 
 // START THE SERVER
 // ==============================================

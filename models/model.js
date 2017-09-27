@@ -16,7 +16,7 @@ var model = {};
 // Lugares
 // ==============================================
 
-//Lista de estados
+//Lista de paises
 model.getPaises = function(callback)
 {
 	if (connection)

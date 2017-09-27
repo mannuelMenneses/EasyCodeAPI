@@ -10,9 +10,9 @@ module.exports = function(app){
 	*@apiDescription Regresa listado de paises
 	*
 	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {String[]} resultados Muestra array con resultados devuletos por la base de datos
-	*@apiSuccess {Number} id Identificador del pais
-	*@apiSuccess {String} nombre Nombre del pais
+	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
+	*@apiSuccess {Number} resultados.id Identificador del pais
+	*@apiSuccess {String} resultados.nombre Nombre del pais
 	*
 	*@apiSuccessExample {json} Ejemplo
 	*{
@@ -46,9 +46,9 @@ module.exports = function(app){
 	*@apiDescription Regresa listado de estados
 	*
 	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {String[]} resultados Muestra array con resultados devuletos por la base de datos
-	*@apiSuccess {Number} id Identificador del estado
-	*@apiSuccess {String} nombre Nombre del estado
+	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
+	*@apiSuccess {Number} resultados.id Identificador del estado
+	*@apiSuccess {String} resultados.nombre Nombre del estado
 	*
 	*@apiSuccessExample {json} Ejemplo
 	*{
