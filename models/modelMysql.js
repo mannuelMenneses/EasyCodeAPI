@@ -11,33 +11,13 @@ connection = mysql.createConnection(
 );
 
 //creamos un objeto para ir almacenando todo lo que necesitemos
-var model = {};
+var modelMysql = {};
 
 // Lugares
 // ==============================================
 
-//Lista de paises
-model.getPaises = function(callback)
-{
-	if (connection)
-	{
-		var sql = "SELECT * FROM `pais` order by `nombre`";
-		connection.query(sql, function(error, row) 
-		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
-}
-
 //Lista de estados
-model.getEstados = function(callback)
+modelMysql.getEstados = function(callback)
 {
 	if (connection)
 	{
@@ -56,5 +36,25 @@ model.getEstados = function(callback)
 	}
 }
 
+//Lista de paises
+modelMysql.getPaises = function(callback)
+{
+	if (connection)
+	{
+		var sql = "SELECT * FROM `pais` order by `nombre`";
+		connection.query(sql, function(error, row) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				callback(null, row);
+			}
+		});
+	}
+}
+
 //exportamos el objeto para tenerlo disponible en la zona de rutas
-module.exports = model;
+module.exports = modelMysql;

@@ -1,6 +1,37 @@
-model = require('../models/model');
+controllerLugares = require('../controllers/controllerLugares');
 
 module.exports = function(app){
+
+	/**
+	*@api{get} /estados Estados
+	*@apiName Estados
+	*@apiGroup Lugares
+	*@apiVersion 1.0.0
+	*@apiDescription Regresa listado de estados
+	*
+	*@apiSuccess {Boolean} exito Muestra estado de la consulta
+	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
+	*@apiSuccess {Number} resultados.id Identificador del estado
+	*@apiSuccess {String} resultados.nombre Nombre del estado
+	*
+	*@apiSuccessExample {json} Ejemplo
+	*{
+	*	"exito": true,
+	*	"resultados": [
+	*		{
+	*			"id": 1,
+	*			"nombre": "Ciudad de México (CDMX)"
+	*		},
+	*		{
+	*			"id": 2,
+	*			"nombre": "Jalisco (JAL)"
+	*		}
+	*	]
+	*}
+	*/
+    app.get('/estados', function(req, res){
+    	controllerLugares.getEstados(res);
+    });
 
 	/**
 	*@api{get} /paises Paises
@@ -30,47 +61,6 @@ module.exports = function(app){
 	*}
 	*/
     app.get('/paises', function(req, res){
-        model.getPaises(function(error, data) {
-        	res.status(200).json({
-        		exito: true,
-        		resultados: data
-        	});
-        });
-    });
-
-    /**
-	*@api{get} /estados Estados
-	*@apiName Estados
-	*@apiGroup Lugares
-	*@apiVersion 1.0.0
-	*@apiDescription Regresa listado de estados
-	*
-	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
-	*@apiSuccess {Number} resultados.id Identificador del estado
-	*@apiSuccess {String} resultados.nombre Nombre del estado
-	*
-	*@apiSuccessExample {json} Ejemplo
-	*{
-	*	"exito": true,
-	*	"resultados": [
-	*		{
-	*			"id": 1,
-	*			"nombre": "Ciudad de México (CDMX)"
-	*		},
-	*		{
-	*			"id": 2,
-	*			"nombre": "Jalisco (JAL)"
-	*		}
-	*	]
-	*}
-	*/
-    app.get('/estados', function(req, res){
-        model.getEstados(function(error, data) {
-        	res.status(200).json({
-        		exito: true,
-        		resultados: data
-        	});
-        });
+    	controllerLugares.getPaises(res);
     });
 }

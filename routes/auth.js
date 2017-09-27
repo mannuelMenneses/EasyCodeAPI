@@ -1,4 +1,3 @@
-model = require('../models/model');
 bodyParser = require('body-parser');
 
 module.exports = function(app){

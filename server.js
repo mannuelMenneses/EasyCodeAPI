@@ -3,7 +3,7 @@
 
 var express = require('express');
 var app     = express();
-var puerto    =   process.env.PORT || 8080;
+var puerto  = process.env.PORT || 8080;
 
 // ROUTES
 // ==============================================
