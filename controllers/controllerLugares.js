@@ -1,6 +1,6 @@
 modelMysql = require('../models/modelMysql');
 
-function getEstados(res) {
+function getEstados(req, res) {
 	modelMysql.getEstados(function(error, data) {
 		res.status(200).json({
 			exito: true,
@@ -9,7 +9,7 @@ function getEstados(res) {
 	});
 }
 
-function getPaises(res) {
+function getPaises(req, res) {
 	modelMysql.getPaises(function(error, data) {
 		res.status(200).json({
 			exito: true,

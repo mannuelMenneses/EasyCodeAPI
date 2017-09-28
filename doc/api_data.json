@@ -6,7 +6,7 @@
     "name": "Login",
     "group": "Auth",
     "version": "1.0.0",
-    "description": "<p>Regresa token unico para el usuario [INCOMPLETO]</p>",
+    "description": "<p>Regresa token unico para el usuario</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -42,44 +42,44 @@
             "type": "Token",
             "optional": false,
             "field": "token",
-            "description": "<p>Falta por implementar</p>"
+            "description": "<p>Token unico de usuario</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Ejemplo",
-          "content": "{\n\t\"exito\": true,\n\t\"token\": \"Aun no implementado\"\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NTI5LCJleHAiOjE1MDc3NDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE\"\n}",
           "type": "json"
         }
       ]
     },
     "error": {
       "fields": {
-        "Error 404": [
+        "Error": [
           {
-            "group": "Error 404",
+            "group": "Error",
             "type": "Boolean",
             "optional": false,
             "field": "exito",
             "description": "<p>Muestra estado de la consulta</p>"
           },
           {
-            "group": "Error 404",
+            "group": "Error",
             "type": "Number",
             "optional": false,
             "field": "status",
             "description": "<p>Codigo de error</p>"
           },
           {
-            "group": "Error 404",
+            "group": "Error",
             "type": "String",
             "optional": false,
             "field": "error",
             "description": "<p>Nombre del error</p>"
           },
           {
-            "group": "Error 404",
+            "group": "Error",
             "type": "String",
             "optional": false,
             "field": "detalles",
@@ -89,8 +89,13 @@
       },
       "examples": [
         {
-          "title": "Ejemplo",
-          "content": "{\n\t\"exito\": false,\n\t\"status\": 404,\n\t\"error\": \"ParametrosIncompletos\",\n\t\"detalles\": \"Los parametros usuario y/o contrasena estan incompletos\"\n}",
+          "title": "Error 400",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"SolicitudIncorrecta\",\n\t\"detalles\": \"Los parametros usuario y/o contrasena estan incompletos\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 404",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 404,\n\t\"error\": \"NoEncontrado\",\n\t\"detalles\": \"No se encontro al usuario\"\n}",
           "type": "json"
         }
       ]

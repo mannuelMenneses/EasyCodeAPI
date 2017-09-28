@@ -29,8 +29,8 @@ module.exports = function(app){
 	*	]
 	*}
 	*/
-    app.get('/estados', function(req, res){
-    	controllerLugares.getEstados(res);
+    app.get('/estados', function(req, res) {
+    	controllerLugares.getEstados(req, res);
     });
 
 	/**
@@ -60,7 +60,7 @@ module.exports = function(app){
 	*	]
 	*}
 	*/
-    app.get('/paises', function(req, res){
-    	controllerLugares.getPaises(res);
+    app.get('/paises', function(req, res) {
+    	controllerLugares.getPaises(req, res);
     });
 }

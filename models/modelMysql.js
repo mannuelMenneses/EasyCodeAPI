@@ -13,10 +13,33 @@ connection = mysql.createConnection(
 //creamos un objeto para ir almacenando todo lo que necesitemos
 var modelMysql = {};
 
+// Auth
+// ==============================================
+
+//Tipo de uausrio
+modelMysql.getTipoUsuario = function(credenciales, callback)
+{
+	if (connection)
+	{
+		var sql = "SELECT `usuario`, `tipo` FROM `empleado` WHERE (`usuario` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
+		connection.query(sql, function(error, row) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				callback(null, row);
+			}
+		});
+	}
+}
+
 // Lugares
 // ==============================================
 
-//Lista de estados
+//Estados
 modelMysql.getEstados = function(callback)
 {
 	if (connection)
@@ -36,7 +59,7 @@ modelMysql.getEstados = function(callback)
 	}
 }
 
-//Lista de paises
+//Paises
 modelMysql.getPaises = function(callback)
 {
 	if (connection)

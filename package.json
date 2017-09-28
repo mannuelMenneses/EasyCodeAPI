@@ -18,6 +18,8 @@
   "homepage": "https://github.com/mannuelMenneses/EasyCodeAPI#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1"
   }
 }
