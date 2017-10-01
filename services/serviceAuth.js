@@ -1,17 +1,30 @@
 jwt = require('jwt-simple');
 moment = require('moment');
 
-function login (credenciales) {
+function crearToken (credenciales) {
 	payload = {
 		sub: credenciales.usuario,
 		tip: credenciales.tipo,
-		iat: moment().unix(),
 		exp: moment().add(14, 'days').unix(),
 	}
 
 	return jwt.encode(payload, 'barco');
 }
 
+function abrirToken (token) {
+	try {
+		payload = jwt.decode(token, 'barco');
+		return {
+			exito: true,
+			usuario: payload.sub,
+			tipo: payload.tip
+		};
+	} catch (err) {
+		return 0
+	}
+}
+
 module.exports = {
-	login
+	crearToken,
+	abrirToken
 }

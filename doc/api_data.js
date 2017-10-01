@@ -6,7 +6,7 @@ define({ "api": [
     "name": "Login",
     "group": "Auth",
     "version": "1.0.0",
-    "description": "<p>Regresa token unico para el usuario</p>",
+    "description": "<p>Regresa token único para el usuario</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -42,14 +42,14 @@ define({ "api": [
             "type": "Token",
             "optional": false,
             "field": "token",
-            "description": "<p>Token unico de usuario</p>"
+            "description": "<p>Token único de usuario</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Ejemplo",
-          "content": "{\n\t\"exito\": true,\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NTI5LCJleHAiOjE1MDc3NDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE\"\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"token\": \"eyJ0eXAiOiJKV2QiLCJhbGciOiJIUzI1Niu9.eyJzdWIiOdJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NFI5LCJleHAiOjE1MDc3UDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE\"\n}",
           "type": "json"
         }
       ]
@@ -69,7 +69,7 @@ define({ "api": [
             "type": "Number",
             "optional": false,
             "field": "status",
-            "description": "<p>Codigo de error</p>"
+            "description": "<p>Código de error</p>"
           },
           {
             "group": "Error",
@@ -90,12 +90,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Error 400",
-          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"SolicitudIncorrecta\",\n\t\"detalles\": \"Los parametros usuario y/o contrasena estan incompletos\"\n}",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"BadRequest\",\n\t\"detalles\": \"Los parametros usuario y/o contrasena estan incompletos\"\n}",
           "type": "json"
         },
         {
           "title": "Error 404",
-          "content": "{\n\t\"exito\": false,\n\t\"status\": 404,\n\t\"error\": \"NoEncontrado\",\n\t\"detalles\": \"No se encontro al usuario\"\n}",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 404,\n\t\"error\": \"NotFound\",\n\t\"detalles\": \"Usuario no encontrado\"\n}",
           "type": "json"
         }
       ]
@@ -206,5 +206,123 @@ define({ "api": [
     },
     "filename": "routes/lugares.js",
     "groupTitle": "Lugares"
+  },
+  {
+    "type": "get",
+    "url": "/noticia",
+    "title": "Nueva noticia",
+    "name": "Nueva_noticia",
+    "group": "Noticias",
+    "version": "1.0.0",
+    "description": "<p>Registra una nueva noticia</p>",
+    "parameter": {
+      "fields": {
+        "header": [
+          {
+            "group": "header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token único de usuario</p>"
+          }
+        ],
+        "body": [
+          {
+            "group": "body",
+            "type": "String",
+            "optional": false,
+            "field": "titulo",
+            "description": "<p>Titulo de la noticia</p>"
+          },
+          {
+            "group": "body",
+            "type": "Text",
+            "optional": false,
+            "field": "contenido",
+            "description": "<p>Contenido de la noticia</p>"
+          },
+          {
+            "group": "body",
+            "type": "String",
+            "optional": false,
+            "field": "imagen",
+            "description": "<p>Direccion url de la imagen de la noticia (opcional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la accion</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Ejemplo",
+          "content": "{\n\t\"exito\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Error",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Código de error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Nombre del error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "detalles",
+            "description": "<p>Muestra detalles</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error 400",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"SolicitudIncorrecta\",\n\t\"detalles\": \"Los parametros estan incompletos\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 403",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 403,\n\t\"error\": \"Forbidden\",\n\t\"detalles\": \"No se tiene permiso para hacer esta accion\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 500",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 500,\n\t\"error\": \"InternalServerError\",\n\t\"detalles\": \"Error el insertar datos\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/noticia.js",
+    "groupTitle": "Noticias"
   }
 ] });

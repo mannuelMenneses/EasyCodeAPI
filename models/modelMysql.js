@@ -79,5 +79,29 @@ modelMysql.getPaises = function(callback)
 	}
 }
 
+// Noticias
+// ==============================================
+
+//Nueva noticia
+modelMysql.setNoticia = function(noticia, callback)
+{
+	if (connection)
+	{
+		var sql = "INSERT INTO `notcias`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)";
+		connection.query(sql, noticia, function(error, result) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				//devolvemos la última id insertada
+				callback(null,{"insertId" : result.insertId});
+			}
+		});
+	}
+}
+
 //exportamos el objeto para tenerlo disponible en la zona de rutas
 module.exports = modelMysql;
