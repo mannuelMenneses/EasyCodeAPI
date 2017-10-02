@@ -7,19 +7,19 @@ module.exports = function(app){
 	app.use(bodyParser.json());
 
     /**
-	*@api{get} /login Login
+	*@api{post} /login Login
 	*@apiName Login
 	*@apiGroup Auth
 	*@apiVersion 1.0.0
 	*@apiDescription Regresa token único para el usuario
 	*
-	*@apiParam {String} usuario Nombre de usuario o correo electronico
-	*@apiParam {String} contrasena Contraseña de usuario
+	*@apiParam (Post) {String} usuario Nombre de usuario o correo electronico
+	*@apiParam (Post) {String} contrasena Contraseña de usuario
 	*
-	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {Token} token Token único de usuario
+	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la consulta
+	*@apiSuccess (Exito) {Token} token Token único de usuario
 	*
-	*@apiSuccessExample {json} Ejemplo
+	*@apiSuccessExample {json} Exito 200
 	*{
 	*	"exito": true,
 	*	"token": "eyJ0eXAiOiJKV2QiLCJhbGciOiJIUzI1Niu9.eyJzdWIiOdJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NFI5LCJleHAiOjE1MDc3UDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE"

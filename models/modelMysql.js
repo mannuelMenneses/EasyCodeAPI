@@ -21,7 +21,7 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 {
 	if (connection)
 	{
-		var sql = "SELECT `usuario`, `tipo` FROM `empleado` WHERE (`usuario` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
+		var sql = 'SELECT `usuario`, `tipo` FROM `empleado` WHERE (`usuario` = ' + connection.escape(credenciales.usuario) + ' OR `nickname` = ' + connection.escape(credenciales.usuario) + ') AND `contrasena` = AES_ENCRYPT(' + connection.escape(credenciales.contrasena) + ", 'guayaba')";
 		connection.query(sql, function(error, row) 
 		{
 			if(error)
@@ -44,7 +44,7 @@ modelMysql.getEstados = function(callback)
 {
 	if (connection)
 	{
-		var sql = "SELECT * FROM `estado` order by `nombre`";
+		var sql = 'SELECT * FROM `estado` order by `nombre`';
 		connection.query(sql, function(error, row) 
 		{
 			if(error)
@@ -64,7 +64,7 @@ modelMysql.getPaises = function(callback)
 {
 	if (connection)
 	{
-		var sql = "SELECT * FROM `pais` order by `nombre`";
+		var sql = 'SELECT * FROM `pais` order by `nombre`';
 		connection.query(sql, function(error, row) 
 		{
 			if(error)
@@ -82,12 +82,32 @@ modelMysql.getPaises = function(callback)
 // Noticias
 // ==============================================
 
+//Noticias
+modelMysql.getNoticias = function(numero, callback)
+{
+	if (connection)
+	{
+		var sql = 'SELECT `notcias`.`titulo`, `notcias`.`contenido`, `notcias`.`fecha`, CONCAT(`usuario`.`nombre`, " ", `usuario`.`apellidos`) AS empleado, `notcias`.`imagen` FROM `notcias` INNER JOIN `usuario` ON `notcias`.`empleado` = `usuario`.`correo` ORDER BY `fecha` DESC LIMIT 0, ' + connection.escape(numero);
+		connection.query(sql, function(error, row) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				callback(null, row);
+			}
+		});
+	}
+}
+
 //Nueva noticia
 modelMysql.setNoticia = function(noticia, callback)
 {
 	if (connection)
 	{
-		var sql = "INSERT INTO `notcias`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)";
+		var sql = 'INSERT INTO `notcias`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)';
 		connection.query(sql, noticia, function(error, result) 
 		{
 			if(error)

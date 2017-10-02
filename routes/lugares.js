@@ -9,12 +9,12 @@ module.exports = function(app){
 	*@apiVersion 1.0.0
 	*@apiDescription Regresa listado de estados
 	*
-	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
-	*@apiSuccess {Number} resultados.id Identificador del estado
-	*@apiSuccess {String} resultados.nombre Nombre del estado
+	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la consulta
+	*@apiSuccess (Exito) {Object[]} resultados Muestra array con resultados devuletos por la base de datos
+	*@apiSuccess (Exito) {Number} resultados.id Identificador del estado
+	*@apiSuccess (Exito) {String} resultados.nombre Nombre del estado
 	*
-	*@apiSuccessExample {json} Ejemplo
+	*@apiSuccessExample {json} Exito 200
 	*{
 	*	"exito": true,
 	*	"resultados": [
@@ -40,12 +40,12 @@ module.exports = function(app){
 	*@apiVersion 1.0.0
 	*@apiDescription Regresa listado de paises
 	*
-	*@apiSuccess {Boolean} exito Muestra estado de la consulta
-	*@apiSuccess {Object[]} resultados Muestra array con resultados devuletos por la base de datos
-	*@apiSuccess {Number} resultados.id Identificador del pais
-	*@apiSuccess {String} resultados.nombre Nombre del pais
+	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la consulta
+	*@apiSuccess (Exito) {Object[]} resultados Muestra array con resultados devuletos por la base de datos
+	*@apiSuccess (Exito) {Number} resultados.id Identificador del pais
+	*@apiSuccess (Exito) {String} resultados.nombre Nombre del pais
 	*
-	*@apiSuccessExample {json} Ejemplo
+	*@apiSuccessExample {json} Exito 200
 	*{
 	*	"exito": true,
 	*	"resultados": [
