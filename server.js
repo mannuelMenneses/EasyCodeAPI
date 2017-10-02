@@ -9,6 +9,7 @@ var puerto  = process.env.PORT || 8080;
 // ==============================================
 
 require('./routes/auth')(app);
+require('./routes/aviso')(app);
 require('./routes/lugares')(app);
 require('./routes/noticia')(app);
 

@@ -36,6 +36,50 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 	}
 }
 
+// Avisos
+// ==============================================
+
+//Avisos PENDIENTE
+modelMysql.getAvisos = function(nivel, numero, callback)
+{
+	if (connection)
+	{
+		var sql = 'SELECT `avisos`.`titulo`, `avisos`.`contenido`, `avisos`.`fecha`, CONCAT(`usuario`.`nombre`, " ", `usuario`.`apellidos`) AS empleado, `avisos`.`archivo` FROM `avisos` INNER JOIN `usuario` ON `avisos`.`empleado` = `usuario`.`correo` WHERE `avisos`.`nivel` >= ' + connection.escape(nivel) + ' ORDER BY `avisos`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
+		connection.query(sql, function(error, row) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				callback(null, row);
+			}
+		});
+	}
+}
+
+//Nuevo aviso PENDIENTE
+modelMysql.setAviso = function(aviso, callback)
+{
+	if (connection)
+	{
+		var sql = 'INSERT INTO `avisos`(`titulo`, `contenido`, `fecha`, `empleado`, `nivel`, `archivo`) VALUES (?, ?, ?, ?, ?, ?)';
+		connection.query(sql, aviso, function(error, result) 
+		{
+			if(error)
+			{
+				throw error;
+			}
+			else
+			{
+				//devolvemos la última id insertada
+				callback(null,{"insertId" : result.insertId});
+			}
+		});
+	}
+}
+
 // Lugares
 // ==============================================
 
