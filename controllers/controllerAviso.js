@@ -37,10 +37,10 @@ function avisos(req, res) {
 }
 
 function nuevoAviso(req, res) {
-  if (typeof req.headers.token !== 'undefined' && typeof req.body.titulo !== 'undefined' && typeof req.body.contenido !== 'undefined' && typeof req.body.nivel !== 'undefined' && !isNaN(req.body.nivel) && req.body.nivel > 0 && req.body.nivel < 4) {
+  if (typeof req.headers.token !== 'undefined' && typeof req.body.titulo !== 'undefined' && typeof req.body.contenido !== 'undefined' && typeof req.body.nivel !== 'undefined' && !isNaN(req.body.nivel) && req.body.nivel > 0 && req.body.nivel < 3) {
     token = serviceAuth.abrirToken(req.headers.token);
     if (typeof token == 'object') {
-      if (token.tipo == 1 || token.tipo == 2) {
+      if (token.tipo == 1) {
         aviso = [
           req.body.titulo,
           req.body.contenido,

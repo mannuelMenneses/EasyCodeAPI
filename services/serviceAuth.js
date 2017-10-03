@@ -7,7 +7,7 @@ function crearToken (credenciales) {
 		tip: credenciales.tipo,
 		exp: moment().add(14, 'days').unix(),
 	}
-
+	
 	return jwt.encode(payload, 'barco');
 }
 
@@ -15,7 +15,6 @@ function abrirToken (token) {
 	try {
 		payload = jwt.decode(token, 'barco');
 		return {
-			exito: true,
 			usuario: payload.sub,
 			tipo: payload.tip
 		};

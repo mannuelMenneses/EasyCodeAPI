@@ -190,7 +190,7 @@
       "examples": [
         {
           "title": "Exito 200",
-          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"titulo\": \"Preparación para remodelación de área de trabajo\",\n\t\t\t\"contenido\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu sollicitudin ligula, vel condimentum turpis. Proin non orci vulputate, lacinia dui interdum, rhoncus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus erat diam, consectetur vitae purus in, scelerisque scelerisque orci. Suspendisse ac imperdiet erat. Donec nec bibendum eros, vitae posuere nulla. Integer elementum ipsum non diam semper, sed elementum justo blandit. Phasellus at lectus nec tellus dictum fermentum. Sed eu turpis quis neque ornare iaculis nec et augue. Nullam eget erat pharetra enim tempus vehicula quis ac magna. Nunc turpis justo, aliquet a felis at, lobortis ultricies orci. Sed posuere vel lectus id commodo. Nulla sit amet vulputate nulla.\",\n\t\t\t\"fecha\": \"2017-10-01\",\n\t\t\t\"empleado\": \"Germán Perez Hernández\",\n\t\t\t\"archivo\": null\n\t\t},\n\t\t{\n\t\t\t\"titulo\": \"Urgente\",\n\t\t\t\"contenido\": \"Vivamus lacinia magna quis est pharetra, a commodo ex fermentum. Integer eget ullamcorper nisi. Etiam vel malesuada odio, non elementum metus. In hac habitasse platea dictumst. Nam tempus dolor erat, pulvinar convallis mauris lacinia ac. Nullam ut metus dolor. In at dui sit amet nisi tincidunt euismod at a metus. Duis volutpat, nibh sit amet malesuada consectetur, est tortor consectetur lectus, sit amet gravida arcu lacus at erat. Nam euismod pellentesque suscipit. Proin at turpis et felis efficitur placerat. Proin tempus, libero a cursus molestie, arcu mi lacinia quam, et imperdiet nunc dolor in diam. Ut sed lobortis leo. Curabitur tristique et arcu quis aliquam. Nulla sollicitudin enim non orci fringilla, sit amet hendrerit eros sodales. Etiam sit amet tortor aliquam, tincidunt erat laoreet, aliquam sapien. Fusce porta condimentum tellus et volutpat.\",\n\t\t\t\"fecha\": \"2017-09-11\",\n\t\t\t\"empleado\": \"Nancy Villalba Gómez\",\n\t\t\t\"archivo\": null\n\t\t}\n\t]\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"titulo\": \"Lorem ipsum\",\n\t\t\t\"contenido\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu sollicitudin ligula, vel condimentum turpis. Proin non orci vulputate, lacinia dui interdum, rhoncus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus erat diam, consectetur vitae purus in, scelerisque scelerisque orci. Suspendisse ac imperdiet erat. Donec nec bibendum eros, vitae posuere nulla. Integer elementum ipsum non diam semper, sed elementum justo blandit. Phasellus at lectus nec tellus dictum fermentum. Sed eu turpis quis neque ornare iaculis nec et augue. Nullam eget erat pharetra enim tempus vehicula quis ac magna. Nunc turpis justo, aliquet a felis at, lobortis ultricies orci. Sed posuere vel lectus id commodo. Nulla sit amet vulputate nulla.\",\n\t\t\t\"fecha\": \"2017-10-01\",\n\t\t\t\"empleado\": \"Germán Perez Hernández\",\n\t\t\t\"archivo\": null\n\t\t},\n\t\t{\n\t\t\t\"titulo\": \"Vivamus lacinia magna quis est pharetra\",\n\t\t\t\"contenido\": \"Vivamus lacinia magna quis est pharetra, a commodo ex fermentum. Integer eget ullamcorper nisi. Etiam vel malesuada odio, non elementum metus. In hac habitasse platea dictumst. Nam tempus dolor erat, pulvinar convallis mauris lacinia ac. Nullam ut metus dolor. In at dui sit amet nisi tincidunt euismod at a metus. Duis volutpat, nibh sit amet malesuada consectetur, est tortor consectetur lectus, sit amet gravida arcu lacus at erat. Nam euismod pellentesque suscipit. Proin at turpis et felis efficitur placerat. Proin tempus, libero a cursus molestie, arcu mi lacinia quam, et imperdiet nunc dolor in diam. Ut sed lobortis leo. Curabitur tristique et arcu quis aliquam. Nulla sollicitudin enim non orci fringilla, sit amet hendrerit eros sodales. Etiam sit amet tortor aliquam, tincidunt erat laoreet, aliquam sapien. Fusce porta condimentum tellus et volutpat.\",\n\t\t\t\"fecha\": \"2017-09-11\",\n\t\t\t\"empleado\": \"Nancy Villalba Gómez\",\n\t\t\t\"archivo\": null\n\t\t}\n\t]\n}",
           "type": "json"
         }
       ]
@@ -371,58 +371,6 @@
   },
   {
     "type": "get",
-    "url": "/estados",
-    "title": "Estados",
-    "name": "Estados",
-    "group": "Lugares",
-    "version": "1.0.0",
-    "description": "<p>Regresa listado de estados</p>",
-    "success": {
-      "fields": {
-        "Exito": [
-          {
-            "group": "Exito",
-            "type": "Boolean",
-            "optional": false,
-            "field": "exito",
-            "description": "<p>Muestra estado de la consulta</p>"
-          },
-          {
-            "group": "Exito",
-            "type": "Object[]",
-            "optional": false,
-            "field": "resultados",
-            "description": "<p>Muestra array con resultados devuletos por la base de datos</p>"
-          },
-          {
-            "group": "Exito",
-            "type": "Number",
-            "optional": false,
-            "field": "resultados.id",
-            "description": "<p>Identificador del estado</p>"
-          },
-          {
-            "group": "Exito",
-            "type": "String",
-            "optional": false,
-            "field": "resultados.nombre",
-            "description": "<p>Nombre del estado</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exito 200",
-          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"Ciudad de México (CDMX)\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Jalisco (JAL)\"\n\t\t}\n\t]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "routes/lugares.js",
-    "groupTitle": "Lugares"
-  },
-  {
-    "type": "get",
     "url": "/paises",
     "title": "Paises",
     "name": "Paises",
@@ -465,7 +413,72 @@
       "examples": [
         {
           "title": "Exito 200",
-          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"México\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Estados Unidos de América\"\n\t\t}\n\t]\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"México\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Estados Unidos de America\"\n\t\t}\n\t]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/lugares.js",
+    "groupTitle": "Lugares"
+  },
+  {
+    "type": "post",
+    "url": "/provincia",
+    "title": "Provincias",
+    "name": "Provincias",
+    "group": "Lugares",
+    "version": "1.0.0",
+    "description": "<p>Regresa listado de estados</p>",
+    "parameter": {
+      "fields": {
+        "Post": [
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "pais",
+            "description": "<p>Identificador de pais</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Exito": [
+          {
+            "group": "Exito",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Exito",
+            "type": "Object[]",
+            "optional": false,
+            "field": "resultados",
+            "description": "<p>Muestra array con resultados devuletos por la base de datos</p>"
+          },
+          {
+            "group": "Exito",
+            "type": "Number",
+            "optional": false,
+            "field": "resultados.id",
+            "description": "<p>Identificador del estado</p>"
+          },
+          {
+            "group": "Exito",
+            "type": "String",
+            "optional": false,
+            "field": "resultados.nombre",
+            "description": "<p>Nombre del estado</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exito 200",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"id\": 1,\n\t\t\t\"nombre\": \"Ciudad de México\"\n\t\t},\n\t\t{\n\t\t\t\"id\": 2,\n\t\t\t\"nombre\": \"Puebla\"\n\t\t}\n\t]\n}",
           "type": "json"
         }
       ]
@@ -483,15 +496,6 @@
     "description": "<p>Listado de noticias</p>",
     "parameter": {
       "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Token único de usuario</p>"
-          }
-        ],
         "Get": [
           {
             "group": "Get",
@@ -560,53 +564,7 @@
       "examples": [
         {
           "title": "Exito 200",
-          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"titulo\": \"Remodelación de área de trabajo\",\n\t\t\t\"contenido\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu sollicitudin ligula, vel condimentum turpis. Proin non orci vulputate, lacinia dui interdum, rhoncus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus erat diam, consectetur vitae purus in, scelerisque scelerisque orci. Suspendisse ac imperdiet erat. Donec nec bibendum eros, vitae posuere nulla. Integer elementum ipsum non diam semper, sed elementum justo blandit. Phasellus at lectus nec tellus dictum fermentum. Sed eu turpis quis neque ornare iaculis nec et augue. Nullam eget erat pharetra enim tempus vehicula quis ac magna. Nunc turpis justo, aliquet a felis at, lobortis ultricies orci. Sed posuere vel lectus id commodo. Nulla sit amet vulputate nulla.\",\n\t\t\t\"fecha\": \"2017-10-01\",\n\t\t\t\"empleado\": \"Germán Perez Hernández\",\n\t\t\t\"imagen\": null\n\t\t},\n\t\t{\n\t\t\t\"titulo\": \"Urgente\",\n\t\t\t\"contenido\": \"Vivamus lacinia magna quis est pharetra, a commodo ex fermentum. Integer eget ullamcorper nisi. Etiam vel malesuada odio, non elementum metus. In hac habitasse platea dictumst. Nam tempus dolor erat, pulvinar convallis mauris lacinia ac. Nullam ut metus dolor. In at dui sit amet nisi tincidunt euismod at a metus. Duis volutpat, nibh sit amet malesuada consectetur, est tortor consectetur lectus, sit amet gravida arcu lacus at erat. Nam euismod pellentesque suscipit. Proin at turpis et felis efficitur placerat. Proin tempus, libero a cursus molestie, arcu mi lacinia quam, et imperdiet nunc dolor in diam. Ut sed lobortis leo. Curabitur tristique et arcu quis aliquam. Nulla sollicitudin enim non orci fringilla, sit amet hendrerit eros sodales. Etiam sit amet tortor aliquam, tincidunt erat laoreet, aliquam sapien. Fusce porta condimentum tellus et volutpat.\",\n\t\t\t\"fecha\": \"2017-09-11\",\n\t\t\t\"empleado\": \"Mario López Mora\",\n\t\t\t\"imagen\": null\n\t\t}\n\t]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error": [
-          {
-            "group": "Error",
-            "type": "Boolean",
-            "optional": false,
-            "field": "exito",
-            "description": "<p>Muestra estado de la consulta</p>"
-          },
-          {
-            "group": "Error",
-            "type": "Number",
-            "optional": false,
-            "field": "status",
-            "description": "<p>Código de error</p>"
-          },
-          {
-            "group": "Error",
-            "type": "String",
-            "optional": false,
-            "field": "error",
-            "description": "<p>Nombre del error</p>"
-          },
-          {
-            "group": "Error",
-            "type": "String",
-            "optional": false,
-            "field": "detalles",
-            "description": "<p>Muestra detalles</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error 400",
-          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"BadRequest\",\n\t\"detalles\": \"No se recibio token\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "Error 403",
-          "content": "{\n\t\"exito\": false,\n\t\"status\": 403,\n\t\"error\": \"Forbidden\",\n\t\"detalles\": \"No se tiene permiso para hacer esta accion\"\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"resultados\": [\n\t\t{\n\t\t\t\"titulo\": \"Lorem ipsum\",\n\t\t\t\"contenido\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu sollicitudin ligula, vel condimentum turpis. Proin non orci vulputate, lacinia dui interdum, rhoncus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus erat diam, consectetur vitae purus in, scelerisque scelerisque orci. Suspendisse ac imperdiet erat. Donec nec bibendum eros, vitae posuere nulla. Integer elementum ipsum non diam semper, sed elementum justo blandit. Phasellus at lectus nec tellus dictum fermentum. Sed eu turpis quis neque ornare iaculis nec et augue. Nullam eget erat pharetra enim tempus vehicula quis ac magna. Nunc turpis justo, aliquet a felis at, lobortis ultricies orci. Sed posuere vel lectus id commodo. Nulla sit amet vulputate nulla.\",\n\t\t\t\"fecha\": \"2017-10-01\",\n\t\t\t\"empleado\": \"Germán Perez Hernández\",\n\t\t\t\"imagen\": null\n\t\t},\n\t\t{\n\t\t\t\"titulo\": \"Vivamus lacinia magna quis est pharetra\",\n\t\t\t\"contenido\": \"Vivamus lacinia magna quis est pharetra, a commodo ex fermentum. Integer eget ullamcorper nisi. Etiam vel malesuada odio, non elementum metus. In hac habitasse platea dictumst. Nam tempus dolor erat, pulvinar convallis mauris lacinia ac. Nullam ut metus dolor. In at dui sit amet nisi tincidunt euismod at a metus. Duis volutpat, nibh sit amet malesuada consectetur, est tortor consectetur lectus, sit amet gravida arcu lacus at erat. Nam euismod pellentesque suscipit. Proin at turpis et felis efficitur placerat. Proin tempus, libero a cursus molestie, arcu mi lacinia quam, et imperdiet nunc dolor in diam. Ut sed lobortis leo. Curabitur tristique et arcu quis aliquam. Nulla sollicitudin enim non orci fringilla, sit amet hendrerit eros sodales. Etiam sit amet tortor aliquam, tincidunt erat laoreet, aliquam sapien. Fusce porta condimentum tellus et volutpat.\",\n\t\t\t\"fecha\": \"2017-09-11\",\n\t\t\t\"empleado\": \"Mario López Mora\",\n\t\t\t\"imagen\": null\n\t\t}\n\t]\n}",
           "type": "json"
         }
       ]

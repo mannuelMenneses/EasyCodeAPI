@@ -82,14 +82,14 @@ module.exports = function(app){
 	*	"exito": true,
 	*	"resultados": [
 	*		{
-	*			"titulo": "Preparación para remodelación de área de trabajo",
+	*			"titulo": "Lorem ipsum",
 	*			"contenido": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu sollicitudin ligula, vel condimentum turpis. Proin non orci vulputate, lacinia dui interdum, rhoncus nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus erat diam, consectetur vitae purus in, scelerisque scelerisque orci. Suspendisse ac imperdiet erat. Donec nec bibendum eros, vitae posuere nulla. Integer elementum ipsum non diam semper, sed elementum justo blandit. Phasellus at lectus nec tellus dictum fermentum. Sed eu turpis quis neque ornare iaculis nec et augue. Nullam eget erat pharetra enim tempus vehicula quis ac magna. Nunc turpis justo, aliquet a felis at, lobortis ultricies orci. Sed posuere vel lectus id commodo. Nulla sit amet vulputate nulla.",
 	*			"fecha": "2017-10-01",
 	*			"empleado": "Germán Perez Hernández",
 	*			"archivo": null
 	*		},
 	*		{
-	*			"titulo": "Urgente",
+	*			"titulo": "Vivamus lacinia magna quis est pharetra",
 	*			"contenido": "Vivamus lacinia magna quis est pharetra, a commodo ex fermentum. Integer eget ullamcorper nisi. Etiam vel malesuada odio, non elementum metus. In hac habitasse platea dictumst. Nam tempus dolor erat, pulvinar convallis mauris lacinia ac. Nullam ut metus dolor. In at dui sit amet nisi tincidunt euismod at a metus. Duis volutpat, nibh sit amet malesuada consectetur, est tortor consectetur lectus, sit amet gravida arcu lacus at erat. Nam euismod pellentesque suscipit. Proin at turpis et felis efficitur placerat. Proin tempus, libero a cursus molestie, arcu mi lacinia quam, et imperdiet nunc dolor in diam. Ut sed lobortis leo. Curabitur tristique et arcu quis aliquam. Nulla sollicitudin enim non orci fringilla, sit amet hendrerit eros sodales. Etiam sit amet tortor aliquam, tincidunt erat laoreet, aliquam sapien. Fusce porta condimentum tellus et volutpat.",
 	*			"fecha": "2017-09-11",
 	*			"empleado": "Nancy Villalba Gómez",

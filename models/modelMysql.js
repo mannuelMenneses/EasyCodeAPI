@@ -21,8 +21,8 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 {
 	if (connection)
 	{
-		var sql = 'SELECT `usuario`, `tipo` FROM `empleado` WHERE (`usuario` = ' + connection.escape(credenciales.usuario) + ' OR `nickname` = ' + connection.escape(credenciales.usuario) + ') AND `contrasena` = AES_ENCRYPT(' + connection.escape(credenciales.contrasena) + ", 'guayaba')";
-		connection.query(sql, function(error, row) 
+		var sql = "SELECT `id`, `puesto` FROM `empleado` WHERE (`correo` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
+		connection.query(sql, function(error, row)
 		{
 			if(error)
 			{
@@ -39,13 +39,13 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 // Avisos
 // ==============================================
 
-//Avisos PENDIENTE
+//Avisos
 modelMysql.getAvisos = function(nivel, numero, callback)
 {
 	if (connection)
 	{
-		var sql = 'SELECT `avisos`.`titulo`, `avisos`.`contenido`, `avisos`.`fecha`, CONCAT(`usuario`.`nombre`, " ", `usuario`.`apellidos`) AS empleado, `avisos`.`archivo` FROM `avisos` INNER JOIN `usuario` ON `avisos`.`empleado` = `usuario`.`correo` WHERE `avisos`.`nivel` >= ' + connection.escape(nivel) + ' ORDER BY `avisos`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
-		connection.query(sql, function(error, row) 
+		var sql = 'SELECT `aviso`.`titulo`, `aviso`.`contenido`, `aviso`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `archivo`.`ubicacion` AS archivo FROM aviso INNER JOIN empleado ON aviso.empleado = empleado.id LEFT JOIN archivo ON aviso.archivo = archivo.id WHERE `aviso`.`nivel` >= ' + connection.escape(nivel) + ' ORDER BY `aviso`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
+		connection.query(sql, function(error, row)
 		{
 			if(error)
 			{
@@ -59,13 +59,13 @@ modelMysql.getAvisos = function(nivel, numero, callback)
 	}
 }
 
-//Nuevo aviso PENDIENTE
+//Nuevo aviso
 modelMysql.setAviso = function(aviso, callback)
 {
 	if (connection)
 	{
-		var sql = 'INSERT INTO `avisos`(`titulo`, `contenido`, `fecha`, `empleado`, `nivel`, `archivo`) VALUES (?, ?, ?, ?, ?, ?)';
-		connection.query(sql, aviso, function(error, result) 
+		var sql = 'INSERT INTO `aviso`(`titulo`, `contenido`, `fecha`, `empleado`, `nivel`, `archivo`) VALUES (?, ?, ?, ?, ?, ?)';
+		connection.query(sql, aviso, function(error, result)
 		{
 			if(error)
 			{
@@ -83,13 +83,13 @@ modelMysql.setAviso = function(aviso, callback)
 // Lugares
 // ==============================================
 
-//Estados
-modelMysql.getEstados = function(callback)
+//Provincias
+modelMysql.getProvincia = function(pais, callback)
 {
 	if (connection)
 	{
-		var sql = 'SELECT * FROM `estado` order by `nombre`';
-		connection.query(sql, function(error, row) 
+		var sql = 'SELECT `id`, `nombre` FROM `provincia` WHERE `pais` = ?';
+		connection.query(sql, pais, function(error, row)
 		{
 			if(error)
 			{
@@ -108,8 +108,8 @@ modelMysql.getPaises = function(callback)
 {
 	if (connection)
 	{
-		var sql = 'SELECT * FROM `pais` order by `nombre`';
-		connection.query(sql, function(error, row) 
+		var sql = 'SELECT * FROM `pais` ORDER BY `nombre`';
+		connection.query(sql, function(error, row)
 		{
 			if(error)
 			{
@@ -131,8 +131,8 @@ modelMysql.getNoticias = function(numero, callback)
 {
 	if (connection)
 	{
-		var sql = 'SELECT `notcias`.`titulo`, `notcias`.`contenido`, `notcias`.`fecha`, CONCAT(`usuario`.`nombre`, " ", `usuario`.`apellidos`) AS empleado, `notcias`.`imagen` FROM `notcias` INNER JOIN `usuario` ON `notcias`.`empleado` = `usuario`.`correo` ORDER BY `fecha` DESC LIMIT 0, ' + connection.escape(numero);
-		connection.query(sql, function(error, row) 
+		var sql = 'SELECT `noticia`.`titulo`, `noticia`.`contenido`, `noticia`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `noticia`.`imagen` FROM `noticia` INNER JOIN `empleado` ON `noticia`.`empleado` = `empleado`.`id` ORDER BY `noticia`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
+		connection.query(sql, function(error, row)
 		{
 			if(error)
 			{
@@ -151,8 +151,8 @@ modelMysql.setNoticia = function(noticia, callback)
 {
 	if (connection)
 	{
-		var sql = 'INSERT INTO `notcias`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)';
-		connection.query(sql, noticia, function(error, result) 
+		var sql = 'INSERT INTO `noticia`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)';
+		connection.query(sql, noticia, function(error, result)
 		{
 			if(error)
 			{

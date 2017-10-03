@@ -8,7 +8,7 @@ function login(req, res) {
       if (typeof data[0] !== 'undefined') {
         res.status(200).json({
           exito: true,
-          token: serviceAuth.crearToken({usuario: data[0].usuario, tipo: data[0].tipo})
+          token: serviceAuth.crearToken({usuario: data[0].id, tipo: data[0].puesto})
         });
       }
       else {
