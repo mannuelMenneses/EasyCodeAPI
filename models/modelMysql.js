@@ -21,7 +21,7 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 {
 	if (connection)
 	{
-		var sql = "SELECT `id`, `puesto` FROM `empleado` WHERE (`correo` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
+		var sql = "SELECT `id`, `puesto`, `status` FROM `empleado` WHERE (`correo` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
 		connection.query(sql, function(error, row)
 		{
 			if(error)

@@ -94,6 +94,11 @@
           "type": "json"
         },
         {
+          "title": "Error 403",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 403,\n\t\"error\": \"Forbidden\",\n\t\"detalles\": \"Este usuario ha sido desactivado\"\n}",
+          "type": "json"
+        },
+        {
           "title": "Error 404",
           "content": "{\n\t\"exito\": false,\n\t\"status\": 404,\n\t\"error\": \"NotFound\",\n\t\"detalles\": \"Usuario no encontrado\"\n}",
           "type": "json"

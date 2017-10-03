@@ -38,6 +38,14 @@ module.exports = function(app){
 	*	"detalles": "Los parametros usuario y/o contrasena estan incompletos"
 	*}
 	*
+	*@apiErrorExample {json} Error 403
+	*{
+	*	"exito": false,
+	*	"status": 403,
+	*	"error": "Forbidden",
+	*	"detalles": "Este usuario ha sido desactivado"
+	*}
+	*
 	*@apiErrorExample {json} Error 404
 	*{
 	*	"exito": false,
