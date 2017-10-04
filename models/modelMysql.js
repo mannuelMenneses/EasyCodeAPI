@@ -69,7 +69,7 @@ modelMysql.setAviso = function(aviso, callback)
 		{
 			if(error)
 			{
-				throw error;
+				callback(null, error);
 			}
 			else
 			{
@@ -93,9 +93,7 @@ modelMysql.setEmpleado = function(empleado, callback)
 		{
 			if(error)
 			{
-				//throw error;
-				result = null;
-				callback(null, error)
+				callback(null, error);
 			}
 			else
 			{
@@ -182,7 +180,7 @@ modelMysql.setNoticia = function(noticia, callback)
 		{
 			if(error)
 			{
-				throw error;
+				callback(null, error);
 			}
 			else
 			{

@@ -50,7 +50,7 @@ function nuevoAviso(req, res) {
           req.body.archivo
         ];
         modelMysql.setAviso(aviso, function(error, data) {
-          if(data && data.insertId) {
+          if(data.insertId) {
             res.status(201).json({exito: true});
           }
           else {
@@ -58,7 +58,7 @@ function nuevoAviso(req, res) {
               exito: false,
               status: 500,
               error: "InternalServerError",
-              detalles: "Error el insertar datos"
+              detalles: data.sqlMessage
             });
           }
         });
