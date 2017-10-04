@@ -53,6 +53,14 @@ module.exports = function(app){
 	*	"error": "NotFound",
 	*	"detalles": "Usuario no encontrado"
 	*}
+	*
+	*@apiErrorExample {json} Error 500
+	*{
+	*	"exito": false,
+	*	"status": 500,
+	*	"error": "InternalServerError",
+	*	"detalles": "No se puede acceder a la base de datos"
+	*}
 	*/
     app.post('/login', function(req, res) {
     	controllerAuth.login(req, res);

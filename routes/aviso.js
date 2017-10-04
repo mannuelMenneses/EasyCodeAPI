@@ -118,6 +118,14 @@ module.exports = function(app){
 	*	"error": "Forbidden",
 	*	"detalles": "No se tiene permiso para hacer esta accion"
 	*}
+	*
+	*@apiErrorExample {json} Error 500
+	*{
+	*	"exito": false,
+	*	"status": 500,
+	*	"error": "InternalServerError",
+	*	"detalles": "No se puede acceder a la base de datos"
+	*}
 	*/
     app.post('/avisos', function(req, res) {
     	controllerAviso.avisos(req, res);

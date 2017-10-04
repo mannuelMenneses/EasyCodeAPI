@@ -95,6 +95,19 @@ module.exports = function(app){
 	*		}
 	*	]
 	*}
+	*
+	*@apiError (Error) {Boolean} exito Muestra estado de la consulta
+	*@apiError (Error) {Number} status Código de error
+	*@apiError (Error) {String} error Nombre del error
+	*@apiError (Error) {String} detalles Muestra detalles
+	*
+	*@apiErrorExample {json} Error 500
+	*{
+	*	"exito": false,
+	*	"status": 500,
+	*	"error": "InternalServerError",
+	*	"detalles": "No se puede acceder a la base de datos"
+	*}
 	*/
     app.post('/noticias', function(req, res) {
     	controllerNoticia.noticias(req, res);
