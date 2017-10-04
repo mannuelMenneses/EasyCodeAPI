@@ -14,6 +14,7 @@ require('./routes/cliente')(app);
 require('./routes/empleado')(app);
 require('./routes/lugares')(app);
 require('./routes/noticia')(app);
+require('./routes/seguimiento')(app);
 
 // START THE SERVER
 // ==============================================

@@ -215,5 +215,29 @@ modelMysql.setNoticia = function(noticia, callback)
 	}
 }
 
+// Seguimientos
+// ==============================================
+
+//Nuevo seguimiento
+modelMysql.setSeguimiento = function(seguimiento, callback)
+{
+	if (connection)
+	{
+		var sql = 'INSERT INTO `seguimiento`(`cliente`, `asunto`, `fecha`, `descripcion`, `empleado`) VALUES (?, ?, ?, ?, ?)';
+		connection.query(sql, seguimiento, function(error, result)
+		{
+			if(error)
+			{
+				callback(null, error);
+			}
+			else
+			{
+				//devolvemos la última id insertada
+				callback(null,{"insertId" : result.insertId});
+			}
+		});
+	}
+}
+
 //exportamos el objeto para tenerlo disponible en la zona de rutas
 module.exports = modelMysql;
