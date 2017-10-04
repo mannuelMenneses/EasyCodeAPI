@@ -16,7 +16,7 @@ var modelMysql = {};
 // Auth
 // ==============================================
 
-//Tipo de uausrio
+//Tipo de empleado
 modelMysql.getTipoUsuario = function(credenciales, callback)
 {
 	if (connection)
@@ -70,6 +70,32 @@ modelMysql.setAviso = function(aviso, callback)
 			if(error)
 			{
 				throw error;
+			}
+			else
+			{
+				//devolvemos la última id insertada
+				callback(null,{"insertId" : result.insertId});
+			}
+		});
+	}
+}
+
+// Empleados
+// ==============================================
+
+//Nuevo empleado
+modelMysql.setEmpleado = function(empleado, callback)
+{
+	if (connection)
+	{
+		var sql = 'INSERT INTO `empleado`(`nickname`, `contrasena`, `nombre`, `apellidos`, `puesto`, `telefono`, `correo`, `provincia`, `fdn`, `status`) VALUES (?, AES_ENCRYPT(?, "guayaba"), ?, ?, ?, ?, ?, ?, ?, 1)';
+		connection.query(sql, empleado, function(error, result)
+		{
+			if(error)
+			{
+				//throw error;
+				result = null;
+				callback(null, error)
 			}
 			else
 			{
