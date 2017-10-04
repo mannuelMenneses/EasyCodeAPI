@@ -17,7 +17,7 @@ module.exports = function(app){
 	*@apiParam (Post) {String} titulo Titulo de la noticia
 	*@apiParam (Post) {Text} contenido Contenido de la noticia
 	*@apiParam (Post) {String} nivel Nivel de empleado que puede ver el aviso
-	*@apiParam (Post) {String} archivo Direccion url del archivo del aviso (opcional)
+	*@apiParam (Post) {Number} archivo Identificador de archivo (opcional)
 	*
 	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la accion
 	*

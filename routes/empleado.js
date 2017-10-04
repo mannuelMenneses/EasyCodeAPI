@@ -7,16 +7,22 @@ module.exports = function(app){
 	app.use(bodyParser.json());
 
     /**
-	*@api{post} /noticia Nueva noticia
-	*@apiName Nueva noticia
-	*@apiGroup Noticias
+	*@api{post} /empleado Nuevo empleado
+	*@apiName Nuevo empleado
+	*@apiGroup Empleado
 	*@apiVersion 1.0.0
-	*@apiDescription Registra una nueva noticia
+	*@apiDescription Registra un nuevo empleado
 	*
-	*@apiParam (Header) {String} token Token único de usuario
-	*@apiParam (Post) {String} titulo Titulo de la noticia
-	*@apiParam (Post) {Text} contenido Contenido de la noticia
-	*@apiParam (Post) {String} imagen Direccion url de la imagen de la noticia (opcional)
+	*@apiParam (Header) {String} token Token único de administrador que va a hacer la acción
+	*@apiParam (Post) {String} nickname Nombre único de usuario para el sistema (Opcional)
+	*@apiParam (Post) {String} contrasena Contraseña de usuario
+	*@apiParam (Post) {String} nombre Nombre del empleado
+	*@apiParam (Post) {String} apellidos Apellidos del empleado
+	*@apiParam (Post) {Number} puesto Puesto del empleado (1 = Administrador / 2 = Empleado)
+	*@apiParam (Post) {String} telefono Telefono del empleado (Opcional)
+	*@apiParam (Post) {String} correo Correo del empleado
+	*@apiParam (Post) {Number} provincia Identificador de provincia (Opcional)
+	*@apiParam (Post) {Date} fdn Fecha de nacimiento del empleado (Opcional)
 	*
 	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la accion
 	*

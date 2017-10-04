@@ -292,10 +292,10 @@
           },
           {
             "group": "Post",
-            "type": "String",
+            "type": "Number",
             "optional": false,
             "field": "archivo",
-            "description": "<p>Direccion url del archivo del aviso (opcional)</p>"
+            "description": "<p>Identificador de archivo (opcional)</p>"
           }
         ]
       }
@@ -373,6 +373,319 @@
     },
     "filename": "routes/aviso.js",
     "groupTitle": "Avisos"
+  },
+  {
+    "type": "post",
+    "url": "/cliente",
+    "title": "Nuevo cliente",
+    "name": "Nuevo_cliente",
+    "group": "Cliente",
+    "version": "1.0.0",
+    "description": "<p>Registra un nuevo cliente</p>",
+    "parameter": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token único de administrador que va a hacer la acción</p>"
+          }
+        ],
+        "Post": [
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>Nombre del cliente</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "apellidos",
+            "description": "<p>Apellidos del cliente</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Number",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>Tipo del cliente (1 = Persona moral / 2 = Persona fisica)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "correo",
+            "description": "<p>Correo del cliente</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "telefono",
+            "description": "<p>Telefono del cliente (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Number",
+            "optional": false,
+            "field": "provincia",
+            "description": "<p>Identificador de provincia (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Text",
+            "optional": false,
+            "field": "direccion",
+            "description": "<p>Dirección del cliente (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "cp",
+            "description": "<p>Código Postal del cliente (Opcional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Exito": [
+          {
+            "group": "Exito",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la accion</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exito 201",
+          "content": "{\n\t\"exito\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Error",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Código de error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Nombre del error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "detalles",
+            "description": "<p>Muestra detalles</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error 400",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"SolicitudIncorrecta\",\n\t\"detalles\": \"Los parametros estan incompletos\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 403",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 403,\n\t\"error\": \"Forbidden\",\n\t\"detalles\": \"No se tiene permiso para hacer esta accion\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 500",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 500,\n\t\"error\": \"InternalServerError\",\n\t\"detalles\": \"Error el insertar datos\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/cliente.js",
+    "groupTitle": "Cliente"
+  },
+  {
+    "type": "post",
+    "url": "/empleado",
+    "title": "Nuevo empleado",
+    "name": "Nuevo_empleado",
+    "group": "Empleado",
+    "version": "1.0.0",
+    "description": "<p>Registra un nuevo empleado</p>",
+    "parameter": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Token único de administrador que va a hacer la acción</p>"
+          }
+        ],
+        "Post": [
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>Nombre único de usuario para el sistema (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "contrasena",
+            "description": "<p>Contraseña de usuario</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "nombre",
+            "description": "<p>Nombre del empleado</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "apellidos",
+            "description": "<p>Apellidos del empleado</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Number",
+            "optional": false,
+            "field": "puesto",
+            "description": "<p>Puesto del empleado (1 = Administrador / 2 = Empleado)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "telefono",
+            "description": "<p>Telefono del empleado (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "String",
+            "optional": false,
+            "field": "correo",
+            "description": "<p>Correo del empleado</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Number",
+            "optional": false,
+            "field": "provincia",
+            "description": "<p>Identificador de provincia (Opcional)</p>"
+          },
+          {
+            "group": "Post",
+            "type": "Date",
+            "optional": false,
+            "field": "fdn",
+            "description": "<p>Fecha de nacimiento del empleado (Opcional)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Exito": [
+          {
+            "group": "Exito",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la accion</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exito 201",
+          "content": "{\n\t\"exito\": true\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error": [
+          {
+            "group": "Error",
+            "type": "Boolean",
+            "optional": false,
+            "field": "exito",
+            "description": "<p>Muestra estado de la consulta</p>"
+          },
+          {
+            "group": "Error",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Código de error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "error",
+            "description": "<p>Nombre del error</p>"
+          },
+          {
+            "group": "Error",
+            "type": "String",
+            "optional": false,
+            "field": "detalles",
+            "description": "<p>Muestra detalles</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error 400",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 400,\n\t\"error\": \"SolicitudIncorrecta\",\n\t\"detalles\": \"Los parametros estan incompletos\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 403",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 403,\n\t\"error\": \"Forbidden\",\n\t\"detalles\": \"No se tiene permiso para hacer esta accion\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error 500",
+          "content": "{\n\t\"exito\": false,\n\t\"status\": 500,\n\t\"error\": \"InternalServerError\",\n\t\"detalles\": \"Error el insertar datos\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "routes/empleado.js",
+    "groupTitle": "Empleado"
   },
   {
     "type": "get",

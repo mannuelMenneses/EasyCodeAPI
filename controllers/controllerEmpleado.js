@@ -36,7 +36,7 @@ function nuevoEmpleado(req, res) {
           exito: false,
           status: 403,
           error: "Forbidden",
-          detalles: "No se tiene permiso para hacer esta accion"
+          detalles: "Sólo los administradores pueden hacer esta acción"
         });
       }
     }

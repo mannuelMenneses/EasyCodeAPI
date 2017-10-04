@@ -7,16 +7,21 @@ module.exports = function(app){
 	app.use(bodyParser.json());
 
     /**
-	*@api{post} /noticia Nueva noticia
-	*@apiName Nueva noticia
-	*@apiGroup Noticias
+	*@api{post} /cliente Nuevo cliente
+	*@apiName Nuevo cliente
+	*@apiGroup Cliente
 	*@apiVersion 1.0.0
-	*@apiDescription Registra una nueva noticia
+	*@apiDescription Registra un nuevo cliente
 	*
-	*@apiParam (Header) {String} token Token único de usuario
-	*@apiParam (Post) {String} titulo Titulo de la noticia
-	*@apiParam (Post) {Text} contenido Contenido de la noticia
-	*@apiParam (Post) {String} imagen Direccion url de la imagen de la noticia (opcional)
+	*@apiParam (Header) {String} token Token único de administrador que va a hacer la acción
+	*@apiParam (Post) {String} nombre Nombre del cliente
+	*@apiParam (Post) {String} apellidos Apellidos del cliente
+	*@apiParam (Post) {Number} tipo Tipo del cliente (1 = Persona moral / 2 = Persona fisica)
+	*@apiParam (Post) {String} correo Correo del cliente
+	*@apiParam (Post) {String} telefono Telefono del cliente (Opcional)
+	*@apiParam (Post) {Number} provincia Identificador de provincia (Opcional)
+	*@apiParam (Post) {Text} direccion Dirección del cliente (Opcional)
+	*@apiParam (Post) {String} cp Código Postal del cliente (Opcional)
 	*
 	*@apiSuccess (Exito) {Boolean} exito Muestra estado de la accion
 	*
