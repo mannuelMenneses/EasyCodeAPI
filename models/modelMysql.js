@@ -80,6 +80,30 @@ modelMysql.setAviso = function(aviso, callback)
 	}
 }
 
+// Clientes
+// ==============================================
+
+//Nuevo cliente
+modelMysql.setCliente = function(cliente, callback)
+{
+	if (connection)
+	{
+		var sql = 'INSERT INTO `cliente`(`nombre`, `apellidos`, `tipo`, `correo`, `telefono`, `provincia`, `direccion`, `cp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+		connection.query(sql, cliente, function(error, result)
+		{
+			if(error)
+			{
+				callback(null, error);
+			}
+			else
+			{
+				//devolvemos la última id insertada
+				callback(null,{"insertId" : result.insertId});
+			}
+		});
+	}
+}
+
 // Empleados
 // ==============================================
 
