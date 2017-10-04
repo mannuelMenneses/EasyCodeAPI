@@ -18,7 +18,7 @@ function nuevoEmpleado(req, res) {
           req.body.fdn
         ];
         modelMysql.setEmpleado(empleado, function(error, data) {
-          if(data.insertId) {
+          if(!data.sqlMessage) {
             res.status(201).json({exito: true});
           }
           else {

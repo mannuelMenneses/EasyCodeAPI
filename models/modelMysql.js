@@ -19,21 +19,18 @@ var modelMysql = {};
 //Tipo de empleado
 modelMysql.getTipoUsuario = function(credenciales, callback)
 {
-	if (connection)
+	var sql = "SELECT `id`, `puesto`, `status` FROM `empleado` WHERE (`correo` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
+	connection.query(sql, function(error, row)
 	{
-		var sql = "SELECT `id`, `puesto`, `status` FROM `empleado` WHERE (`correo` = " + connection.escape(credenciales.usuario) + " OR `nickname` = " + connection.escape(credenciales.usuario) + ") AND `contrasena` = AES_ENCRYPT(" + connection.escape(credenciales.contrasena) + ", 'guayaba')";
-		connection.query(sql, function(error, row)
+		if(error)
 		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
+			callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
+		}
+		else
+		{
+			callback(null, row);
+		}
+	});
 }
 
 // Avisos
@@ -42,42 +39,40 @@ modelMysql.getTipoUsuario = function(credenciales, callback)
 //Avisos
 modelMysql.getAvisos = function(nivel, numero, callback)
 {
-	if (connection)
+	var sql = 'SELECT `aviso`.`titulo`, `aviso`.`contenido`, `aviso`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `archivo`.`ubicacion` AS archivo FROM aviso INNER JOIN empleado ON aviso.empleado = empleado.id LEFT JOIN archivo ON aviso.archivo = archivo.id WHERE `aviso`.`nivel` >= ' + connection.escape(nivel) + ' ORDER BY `aviso`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
+	connection.query(sql, function(error, row)
 	{
-		var sql = 'SELECT `aviso`.`titulo`, `aviso`.`contenido`, `aviso`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `archivo`.`ubicacion` AS archivo FROM aviso INNER JOIN empleado ON aviso.empleado = empleado.id LEFT JOIN archivo ON aviso.archivo = archivo.id WHERE `aviso`.`nivel` >= ' + connection.escape(nivel) + ' ORDER BY `aviso`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
-		connection.query(sql, function(error, row)
+		if(error)
 		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
+			callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
+		}
+		else
+		{
+			callback(null, row);
+		}
+	});
 }
 
 //Nuevo aviso
 modelMysql.setAviso = function(aviso, callback)
 {
-	if (connection)
+	var sql = 'INSERT INTO `aviso`(`titulo`, `contenido`, `fecha`, `empleado`, `nivel`, `archivo`) VALUES (?, ?, ?, ?, ?, ?)';
+	connection.query(sql, aviso, function(error, result)
 	{
-		var sql = 'INSERT INTO `aviso`(`titulo`, `contenido`, `fecha`, `empleado`, `nivel`, `archivo`) VALUES (?, ?, ?, ?, ?, ?)';
-		connection.query(sql, aviso, function(error, result)
+		if(error)
 		{
-			if(error)
-			{
+			if (error.sqlMessage) {
 				callback(null, error);
 			}
-			else
-			{
-				//devolvemos la última id insertada
-				callback(null,{"insertId" : result.insertId});
+			else {
+				callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
 			}
-		});
-	}
+		}
+		else
+		{
+			callback(null, 0);
+		}
+	});
 }
 
 // Clientes
@@ -86,22 +81,23 @@ modelMysql.setAviso = function(aviso, callback)
 //Nuevo cliente
 modelMysql.setCliente = function(cliente, callback)
 {
-	if (connection)
+	var sql = 'INSERT INTO `cliente`(`nombre`, `apellidos`, `tipo`, `correo`, `telefono`, `provincia`, `direccion`, `cp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+	connection.query(sql, cliente, function(error, result)
 	{
-		var sql = 'INSERT INTO `cliente`(`nombre`, `apellidos`, `tipo`, `correo`, `telefono`, `provincia`, `direccion`, `cp`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-		connection.query(sql, cliente, function(error, result)
+		if(error)
 		{
-			if(error)
-			{
+			if (error.sqlMessage) {
 				callback(null, error);
 			}
-			else
-			{
-				//devolvemos la última id insertada
-				callback(null,{"insertId" : result.insertId});
+			else {
+				callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
 			}
-		});
-	}
+		}
+		else
+		{
+			callback(null, 0);
+		}
+	});
 }
 
 // Empleados
@@ -110,22 +106,23 @@ modelMysql.setCliente = function(cliente, callback)
 //Nuevo empleado
 modelMysql.setEmpleado = function(empleado, callback)
 {
-	if (connection)
+	var sql = 'INSERT INTO `empleado`(`nickname`, `contrasena`, `nombre`, `apellidos`, `puesto`, `telefono`, `correo`, `provincia`, `fdn`, `status`) VALUES (?, AES_ENCRYPT(?, "guayaba"), ?, ?, ?, ?, ?, ?, ?, 1)';
+	connection.query(sql, empleado, function(error, result)
 	{
-		var sql = 'INSERT INTO `empleado`(`nickname`, `contrasena`, `nombre`, `apellidos`, `puesto`, `telefono`, `correo`, `provincia`, `fdn`, `status`) VALUES (?, AES_ENCRYPT(?, "guayaba"), ?, ?, ?, ?, ?, ?, ?, 1)';
-		connection.query(sql, empleado, function(error, result)
+		if(error)
 		{
-			if(error)
-			{
+			if (error.sqlMessage) {
 				callback(null, error);
 			}
-			else
-			{
-				//devolvemos la última id insertada
-				callback(null,{"insertId" : result.insertId});
+			else {
+				callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
 			}
-		});
-	}
+		}
+		else
+		{
+			callback(null, 0);
+		}
+	});
 }
 
 // Lugares
@@ -134,41 +131,35 @@ modelMysql.setEmpleado = function(empleado, callback)
 //Provincias
 modelMysql.getProvincia = function(pais, callback)
 {
-	if (connection)
+	var sql = 'SELECT `id`, `nombre` FROM `provincia` WHERE `pais` = ?';
+	connection.query(sql, pais, function(error, row)
 	{
-		var sql = 'SELECT `id`, `nombre` FROM `provincia` WHERE `pais` = ?';
-		connection.query(sql, pais, function(error, row)
+		if(error)
 		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
+			callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
+		}
+		else
+		{
+			callback(null, row);
+		}
+	})
 }
 
 //Paises
 modelMysql.getPaises = function(callback)
 {
-	if (connection)
+	var sql = 'SELECT * FROM `pais` ORDER BY `nombre`';
+	connection.query(sql, function(error, row)
 	{
-		var sql = 'SELECT * FROM `pais` ORDER BY `nombre`';
-		connection.query(sql, function(error, row)
+		if(error)
 		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
+			callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
+		}
+		else
+		{
+			callback(null, row);
+		}
+	});
 }
 
 // Noticias
@@ -177,42 +168,40 @@ modelMysql.getPaises = function(callback)
 //Noticias
 modelMysql.getNoticias = function(numero, callback)
 {
-	if (connection)
+	var sql = 'SELECT `noticia`.`titulo`, `noticia`.`contenido`, `noticia`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `noticia`.`imagen` FROM `noticia` INNER JOIN `empleado` ON `noticia`.`empleado` = `empleado`.`id` ORDER BY `noticia`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
+	connection.query(sql, function(error, row)
 	{
-		var sql = 'SELECT `noticia`.`titulo`, `noticia`.`contenido`, `noticia`.`fecha`, CONCAT(`empleado`.`nombre`, " ", `empleado`.`apellidos`) AS empleado, `noticia`.`imagen` FROM `noticia` INNER JOIN `empleado` ON `noticia`.`empleado` = `empleado`.`id` ORDER BY `noticia`.`fecha` DESC LIMIT 0, ' + connection.escape(numero);
-		connection.query(sql, function(error, row)
+		if(error)
 		{
-			if(error)
-			{
-				throw error;
-			}
-			else
-			{
-				callback(null, row);
-			}
-		});
-	}
+			callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
+		}
+		else
+		{
+			callback(null, row);
+		}
+	});
 }
 
 //Nueva noticia
 modelMysql.setNoticia = function(noticia, callback)
 {
-	if (connection)
+	var sql = 'INSERT INTO `noticia`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)';
+	connection.query(sql, noticia, function(error, result)
 	{
-		var sql = 'INSERT INTO `noticia`(`titulo`, `contenido`, `fecha`, `empleado`, `imagen`) VALUES (?, ?, ?, ?, ?)';
-		connection.query(sql, noticia, function(error, result)
+		if(error)
 		{
-			if(error)
-			{
+			if (error.sqlMessage) {
 				callback(null, error);
 			}
-			else
-			{
-				//devolvemos la última id insertada
-				callback(null,{"insertId" : result.insertId});
+			else {
+				callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
 			}
-		});
-	}
+		}
+		else
+		{
+			callback(null, 0);
+		}
+	});
 }
 
 // Seguimientos
@@ -221,22 +210,23 @@ modelMysql.setNoticia = function(noticia, callback)
 //Nuevo seguimiento
 modelMysql.setSeguimiento = function(seguimiento, callback)
 {
-	if (connection)
+	var sql = 'INSERT INTO `seguimiento`(`cliente`, `asunto`, `fecha`, `descripcion`, `empleado`) VALUES (?, ?, ?, ?, ?)';
+	connection.query(sql, seguimiento, function(error, result)
 	{
-		var sql = 'INSERT INTO `seguimiento`(`cliente`, `asunto`, `fecha`, `descripcion`, `empleado`) VALUES (?, ?, ?, ?, ?)';
-		connection.query(sql, seguimiento, function(error, result)
+		if(error)
 		{
-			if(error)
-			{
+			if (error.sqlMessage) {
 				callback(null, error);
 			}
-			else
-			{
-				//devolvemos la última id insertada
-				callback(null,{"insertId" : result.insertId});
+			else {
+				callback(null, {sqlMessage: "No se puede acceder a la base de datos"});
 			}
-		});
-	}
+		}
+		else
+		{
+			callback(null, 0);
+		}
+	});
 }
 
 //exportamos el objeto para tenerlo disponible en la zona de rutas

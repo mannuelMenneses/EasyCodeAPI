@@ -16,7 +16,7 @@ function nuevoCliente(req, res) {
         req.body.cp
       ];
       modelMysql.setCliente(cliente, function(error, data) {
-        if(data.insertId) {
+        if(!data.sqlMessage) {
           res.status(201).json({exito: true});
         }
         else {

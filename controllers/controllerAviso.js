@@ -11,10 +11,20 @@ function avisos(req, res) {
         numero = parseInt(req.params.numero);
       }
       modelMysql.getAvisos(token.tipo, numero, function(error, data) {
-        res.status(200).json({
-          exito: true,
-          resultados: data
-        });
+        if(!data.sqlMessage) {
+          res.status(200).json({
+            exito: true,
+            resultados: data
+          });
+        }
+        else {
+          res.status(500).json({
+            exito: false,
+            status: 500,
+            error: "InternalServerError",
+            detalles: data.sqlMessage
+          });
+        }
       })
     }
     else {
@@ -50,7 +60,7 @@ function nuevoAviso(req, res) {
           req.body.archivo
         ];
         modelMysql.setAviso(aviso, function(error, data) {
-          if(data.insertId) {
+          if(!data.sqlMessage) {
             res.status(201).json({exito: true});
           }
           else {

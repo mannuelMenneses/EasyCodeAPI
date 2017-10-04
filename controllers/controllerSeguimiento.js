@@ -13,7 +13,7 @@ function nuevoSeguimiento(req, res) {
         token.usuario
       ];
       modelMysql.setSeguimiento(seguimiento, function(error, data) {
-        if(data.insertId) {
+        if(!data.sqlMessage) {
           res.status(201).json({exito: true});
         }
         else {
