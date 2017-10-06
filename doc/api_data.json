@@ -2,11 +2,11 @@
   {
     "type": "post",
     "url": "/login",
-    "title": "Login",
+    "title": "",
     "name": "Login",
     "group": "Auth",
     "version": "1.0.0",
-    "description": "<p>Regresa token único para el usuario</p>",
+    "description": "<p>Regresa token único para el usuario y el tipo de usuario que es (1 = Administrador / 2 = Empleado)</p>",
     "parameter": {
       "fields": {
         "Post": [
@@ -39,17 +39,31 @@
           },
           {
             "group": "Exito",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Código de exito</p>"
+          },
+          {
+            "group": "Exito",
             "type": "Token",
             "optional": false,
             "field": "token",
             "description": "<p>Token único de usuario</p>"
+          },
+          {
+            "group": "Exito",
+            "type": "Number",
+            "optional": false,
+            "field": "tipo",
+            "description": "<p>Tipo de usuario (1 = Administrador / 2 = Empleado)</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Exito 200",
-          "content": "{\n\t\"exito\": true,\n\t\"token\": \"eyJ0eXAiOiJKV2QiLCJhbGciOiJIUzI1Niu9.eyJzdWIiOdJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NFI5LCJleHAiOjE1MDc3UDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE\"\n}",
+          "content": "{\n\t\"exito\": true,\n\t\"status\": 200,\n\t\"token\": \"eyJ0eXAiOiJKV2QiLCJhbGciOiJIUzI1Niu9.eyJzdWIiOdJ1c3VhcmlvIiwiaWF0IjoxNTA2NTM4NFI5LCJleHAiOjE1MDc3UDgxMjl9.DX3nBM6_6iT55HwclaNddlUadfzsEgReeRm1OF-5NxE\"\n\t\"tipo\": 2\n}",
           "type": "json"
         }
       ]
